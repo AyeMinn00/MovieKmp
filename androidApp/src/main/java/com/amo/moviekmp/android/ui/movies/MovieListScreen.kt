@@ -1,5 +1,7 @@
 package com.amo.moviekmp.android.ui.movies
 
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -31,12 +33,16 @@ fun MovieList(
     LazyVerticalGrid(
         modifier = modifier,
         columns = GridCells.Adaptive(100.dp),
+        contentPadding = PaddingValues(4.dp),
         content = {
             items(
                 movies,
                 key = { model -> model.id },
             ) { movie ->
-                MovieCard(movie = movie)
+                MovieCard(
+                    movie = movie,
+                    modifier = Modifier.padding(2.dp)
+                )
             }
         })
 
