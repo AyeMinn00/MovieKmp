@@ -22,12 +22,9 @@ class MovieViewModel(
 
     init {
         viewModelScope.launch {
-            try {
-                val response = remoteDataSource.getMovies()
-                _movies.update { response.results }
-            } catch (_: Exception) {
-
-            }
+            val response = remoteDataSource.getMovies()
+            _movies.update { response.results }
+            throw UnsupportedOperationException("Throw to test Github Bisect")
         }
     }
 
