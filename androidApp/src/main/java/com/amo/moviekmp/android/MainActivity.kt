@@ -5,17 +5,18 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.amo.moviekmp.Greeting
-import com.amo.moviekmp.android.ui.movies.MovieListScreen
-import com.amo.moviekmp.android.ui.movies.MovieViewModel
+import com.amo.moviekmp.android.ui.login.LoginScreen
+import com.amo.moviekmp.android.ui.login.LoginViewModel
 
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: MovieViewModel by viewModels { MovieViewModel.Factory }
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MovieListScreen(viewModel = viewModel)
+                    LoginScreen(viewModel = viewModel)
                 }
             }
         }
